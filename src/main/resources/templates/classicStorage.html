@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>入库</title>
+</head>
+<body>
+    <form action="/classics/save" method="post">
+        <div>
+            <label for="name">作者：</label>
+            <input type="text" id="name" name="author" />
+        </div>
+        <div>
+            <label for="title">书名：</label>
+            <input type="text" id="title" name="title" />
+        </div>
+        <div>
+            <label for="type">类别：</label>
+            <input type="text" id="type" name="type">
+        </div>
+        <div>
+            <label for="year">年份：</label>
+            <input type="text" id="year" name="year">
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+    <script th:inline="javascript">
+        var test = [[${classics}]];
+        console.info(test);
+    </script>
+</body>
+</html>

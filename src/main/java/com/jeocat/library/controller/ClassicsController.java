@@ -14,8 +14,9 @@ public class ClassicsController {
     @Autowired
     ClassicsService classicsService;
 
-    @PostMapping("/save")
-    public int saveClassic (@RequestBody RequestSaveClassic body) {
+    @ResponseBody
+    @PostMapping(value = "/save")
+    public int saveClassic (@ModelAttribute RequestSaveClassic body) {
         return classicsService.insert(body);
     }
 
