@@ -15,7 +15,7 @@ public class RequestSaveClassic {
     /**
      * 分类
      */
-    private String type;
+    private String category;
     /**
      * 出版年份
      */

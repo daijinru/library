@@ -17,7 +17,7 @@ public class HtmlController {
         model.addAttribute("classics", classicsService.findAll());
         return "classicsInventory";
     }
-    @GetMapping("/storage")
+    @GetMapping("/classics/storage")
     public String storageClassic (Model model) {
         Classics classics = new Classics();
         model.addAttribute("classics", classics);

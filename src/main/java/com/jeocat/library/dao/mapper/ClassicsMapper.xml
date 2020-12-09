@@ -5,8 +5,9 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="author" jdbcType="VARCHAR" property="author" />
     <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
     <result column="year" jdbcType="CHAR" property="year" />
+    <result column="pages" jdbcType="SMALLINT" property="page" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, author, title, type, year
+    id, author, title, category, year, pages
   </sql>
   <select id="selectByAuthor" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -100,8 +101,7 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into classics (author, title, type, 
-      year)
+    insert into classics (author, title, category, year)
     values (#{author,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
       #{year,jdbcType=CHAR})
   </insert>
@@ -118,7 +118,7 @@
         title,
       </if>
       <if test="type != null">
-        type,
+        category,
       </if>
       <if test="year != null">
         year,
@@ -173,7 +173,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       author = #{record.author,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=VARCHAR},
+      category = #{record.type,jdbcType=VARCHAR},
       year = #{record.year,jdbcType=CHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -189,7 +189,7 @@
         title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="type != null">
-        type = #{type,jdbcType=VARCHAR},
+        category = #{type,jdbcType=VARCHAR},
       </if>
       <if test="year != null">
         year = #{year,jdbcType=CHAR},
@@ -201,7 +201,7 @@
     update classics
     set author = #{author,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
+      category = #{type,jdbcType=VARCHAR},
       year = #{year,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

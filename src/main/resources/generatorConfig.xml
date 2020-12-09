@@ -48,12 +48,12 @@
         </javaClientGenerator>
 
 
-        <!-- 列出要生成代码的所有表，这里配置的是不生成Example文件 -->
-        <table tableName="classics"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="id" sqlStatement="MYSQL" identity="true"/>
-        </table>
+        <!-- [！已经生成的不要再次操作，不然将被覆盖] -->
+<!--        <table tableName="classics"-->
+<!--               enableCountByExample="true" enableUpdateByExample="true"-->
+<!--               enableDeleteByExample="true" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="true">-->
+<!--            <generatedKey column="id" sqlStatement="MYSQL" identity="true"/>-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>
